@@ -32,11 +32,10 @@
         mysqli_select_db($connection,"myplugin");
 
         $query = "DROP TABLE `contact`";
-        // $result = $wpdb->query($query);
         $result = mysqli_query($connection, $query);
         return $result;
     }
-    register_uninstall_hook(__FILE__,'drop_table');
+    register_deactivation_hook(__FILE__,'drop_table');
 
 
 
